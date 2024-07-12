@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 10px;">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+  </head>
+  <body>
+    <video id='video' style='object-fit:fill;width: 100%;height: 100%;' controls autoplay autobuffer muted preload='auto'></video>
+    <script type="text/javascript" src="./webrtcstreamer.js"></script>
+    <script>        
+        var webRtcServer = null;		 
+        //页面加载时加载视频画面
+        window.onload = function() { 
+          //video：需要绑定的video控件ID
+          //127.0.0.1：启动webrtc-streamer的设备IP
+          webRtcServer = new WebRtcStreamer("video","http://192.168.4.245:8000/");
+          //需要查看的rtsp地址		
+         webRtcServer.connect("rtsp://admin:admin123@192.168.4.93/h264live;profile=Profile_1");
+        }
+ 
+      //页面退出时销毁
+        window.onbeforeunload = function() { 
+        webRtcServer.disconnect();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 10px;">
+
+<head>
+
+</head>
+<style type="text/css">
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transprent;
+    overflow: hidden;
+  }
+
+  #video {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<body style="margin: 0;">
+  <div style="width: 100%;height: 100%;">
+    <video id='video' width="100%" height="100%" autoplay autobuffer muted preload='auto'></video>
+  </div>
+</body>
+<script type="text/javascript" src="webrtcstreamer.js"></script>
+<script type="text/javascript" src="adapter.min.js"></script>
+<script>
+  var webRtcServer = null;
+  var rtspIp = '';
+
+  function onloadRtc(rtspSrc, rtspIp) {
+    //页面加载时加载视频画面
+    // window.onload = function () {
+      //video：需要绑定的video控件ID
+      //127.0.0.1：启动webrtc-streamer的设备IP
+      console.log('rtspIp',rtspIp,rtspSrc);
+      webRtcServer = new WebRtcStreamer("video", 'http://127.0.0.1:8000')
+      // webRtcServer = new WebRtcStreamer("video", `http://${rtspIp}:8000/`);
+      //需要查看的rtsp地址		
+      webRtcServer.connect(rtspSrc);
+    // }
+  }
+
+  function destoryRtc() {
+    //页面退出时销毁
+    // window.onbeforeunload = function () {
+      webRtcServer.disconnect();
+    // }
+  }
+
+</script>
+
+</html>
