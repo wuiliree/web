@@ -1,27 +1,35 @@
-<!-- <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
   <RouterView />
 </template>
 
+<script setup lang="ts">
+// import menu from "@/mock/menu.js"
+// import { router } from "@/router"
+// import { ElMessage } from "element-plus"
+// import { ref } from "vue";
+
+// const routes = ref()
+// routes.value = menu
+// function gotoFirstPath() {
+//   let path = "/"
+//   if (routes.value.length) {
+//     const first = routes.value[0] as any
+//     if (first.children && first.children.length) {
+//       path = `/home/${first.url}/${first.children[0].url}`
+//     } else {
+//       path = `/home/${first.url}`
+//     }
+//   } else {
+//     return ElMessage.info("您暂未分配权限，请联系管理员为您分配权限")
+//   }
+//   router.push(path)
+// }
+// gotoFirstPath();
+</script>
+
 <style scoped>
-header {
+
+/* header {
   line-height: 1.5;
   max-height: 100vh;
 }
@@ -81,90 +89,5 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-}
-</style> -->
-
-<template>
-  <div>
-    <div>
-      <input placeholder="搜索" type="text" v-model="keyWord">
-    </div>
-    <div style="margin-top: 20px;">
-      <table border cellpadding="0" cellspacing="0" width="600">
-        <thead>
-          <tr>
-            <th>物品名称</th>
-            <th>物品单价</th>
-            <th>物品数量</th>
-            <th>物品总价</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(item, index) in searchData">
-            <td align="center">{{ item.name }}</td>
-            <td align="center">{{ item.price }}</td>
-            <td align="center">
-              <button @click="item.num > 1 ? item.num-- : null">-</button>
-              {{ item.num }}
-              <button @click="item.num < 99 ? item.num++ : null">+</button>
-            </td>
-            <td align="center">{{ item.num * item.price }}</td>
-            <td align="center"><button @click="del(index)">删除</button></td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="5" align="right">
-              总价：{{ total }}
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-  </div>
-</template>
-
-<script setup lang='ts'>
-import { computed, reactive, ref } from 'vue';
-
-let keyWord = ref<string>("")
-interface Data {
-  name: string;
-  price: number;
-  num: number;
-}
-let data = reactive<Data[]>([
-  {
-    name: "小满的绿帽子",
-    price: 500,
-    num: 1
-  },
-  {
-    name: "小满的衣服",
-    price: 1000,
-    num: 1
-  },
-  {
-    name: "小满的裤子",
-    price: 500,
-    num: 1
-  },
-])
-const searchData = computed(() => {
-  return data.filter((item:Data) => {
-    return item.name.includes(keyWord.value)
-  })
-})
-const total = computed(() => {
-  return data.reduce((prev: number, next: Data) => {
-    return prev + next.num * next.price
-  }, 0)
-})
-const del = (index: number) => {
-  data.splice(index, 1)
-}
-
-</script>
-
-<style scoped lang='less'></style>
+} */
+</style>
