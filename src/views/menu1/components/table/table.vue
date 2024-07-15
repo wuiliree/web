@@ -8,7 +8,7 @@
     <div class="table-row" v-for="(row, rowIndex) in tableData" :key="rowIndex"  style="margin-right: 30px;">
       <div class="table-cell" v-for="(column, colIndex) in columns" :key="colIndex">
         <div style="text-align: right;min-width: 120px;">{{ column.label }}:</div>
-        <div style="margin-left: 20px;text-align: center;min-width: 100px;">{{ row[column.prop] }}</div>
+        <div style="margin-left: 20px;width: 150px;min-width: 100px;display: flex;word-break: break-all;text-align: left;">{{ row[column.prop] }}</div>
       </div>
     </div>
   </div>

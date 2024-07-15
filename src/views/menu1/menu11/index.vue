@@ -5,8 +5,12 @@
        <wTable
         :tableData="tableData"
         :columns="columns"
-        :height="'30%'"
+        :height="'70%'"
        ></wTable>
+       <!-- <TextAdaptiveScroll></TextAdaptiveScroll>
+       <version2></version2>
+       <batteryCharge></batteryCharge> -->
+       <bar style="width: 50%;height: 50%;"></bar>
   </div>
 </template>
 
@@ -14,7 +18,11 @@
 import WebRtc from '@/components/WebRtc/index.vue';
 import WebRtcPlay from '@/components/webrtcPlay.vue';
 import { ref } from 'vue';
-import wTable from "../components/table.vue"
+import wTable from "../components/table/table.vue"
+import TextAdaptiveScroll from "../components/textAdaptiveScrolling/index.vue"
+import version2 from "../components/textAdaptiveScrolling/version2.vue"
+import batteryCharge from "../components/batteryCharge/index.vue"
+import bar from "../components/bar/bar.vue"
 // const rtspUrl = `rtsp://admin:abcd1234@10.100.14.153:554/h264/ch1/main/av_stream`
 // const rtspSrc = ref('rtsp://admin:abcd1234@10.100.14.153:80/h264/ch1/main/av_stream')
 // const rtspIp = ref('127.0.0.1')
@@ -57,7 +65,7 @@ const columns = [
 const tableData = [
   {
     robotCode:'sh1',
-    taskname:'巡检任务1',
+    taskname:'巡检任务6198198418',
     predicttime:'2022-01-01',
     unusualnumber:'1',
     Battery:'100',
